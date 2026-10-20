@@ -202,11 +202,17 @@ section{padding-block:clamp(64px,8vw,120px)}
 .audit .side .btn{margin-top:18px;width:100%}
 
 /* founder */
-.founder .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center}
+.founder .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:start}
 @media (max-width:860px){.founder .wrap{grid-template-columns:1fr}}
 .founder .photo{aspect-ratio:4/5;border-radius:22px;background:linear-gradient(160deg,var(--surface-2),var(--surface));display:grid;place-items:center;color:var(--ink-3);font-weight:700;text-align:center;padding:24px}
 .founder p{color:var(--ink-2);margin-top:18px;font-size:1.08rem;max-width:58ch}
 .founder .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.founder p + p{margin-top:14px}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 20px;margin-top:26px}
+@media (max-width:560px){.why-grid{grid-template-columns:1fr}}
+.why-grid div{border-left:3px solid var(--accent);padding-left:14px;min-width:0}
+.why-grid b{display:block;font-weight:800;font-size:1.02rem;margin-bottom:4px}
+.why-grid span{color:var(--ink-2);font-size:.95rem;font-weight:500}
 .founder .tags span{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-weight:700;font-size:.9rem}
 
 /* faq */
@@ -270,7 +276,7 @@ footer .cols{display:flex;flex-wrap:wrap;gap:12px 32px;font-weight:600}
       <a href="#services">Services</a>
       <a href="#guarantees">Guarantees</a>
       <a href="#pricing">Pricing</a>
-      <a href="#faq">FAQ</a>
+      <a href="#why">Why us</a>
     </nav>
     <a class="btn btn-primary" href="#audit">Get a free audit</a>
   </div>
@@ -546,14 +552,22 @@ footer .cols{display:flex;flex-wrap:wrap;gap:12px 32px;font-weight:600}
   </div>
 </section>
 
-<section class="founder">
+<section id="why" class="founder">
   <div class="wrap">
     <!-- REPLACE: founder photo. -->
     <div class="photo">Founder photo</div>
     <div>
-      <p class="kicker">Who you are dealing with</p>
-      <h2>Operator-led. One person, start to finish.</h2>
-      <p>Margin Digital is run by its founder, who has built and operated Australian businesses rather than only marketed them. He takes the audit call, builds the site, runs the ads and reads the report with you. There is no account manager between you and the person doing the work.</p>
+      <p class="kicker">Why Margin Digital</p>
+      <h2>Marketing from a business owner's perspective.</h2>
+      <p>I started Margin Digital because I have spent years on the other side of the agency relationship. I have built businesses, spent my own money on advertising, hired agencies, and been let down by more than one of them.</p>
+      <p>What I learned is that good marketing is not a flashy ROAS figure on a slide. It shows up in the financial health of the business: customer acquisition cost, margin, lifetime value and retention. I understand those numbers because I have had my own money on the line against them, and that is the perspective I bring to every client.</p>
+      <p>We build high-converting websites, manage Google Ads and run Facebook and Instagram campaigns, but the focus is always bigger than the ads. The job is to help you build a more profitable business. And because we are a lean operation, that comes without the traditional agency price tag.</p>
+      <div class="why-grid">
+        <div><b>The person you call is the person doing the work</b><span>No account managers, no handovers, no ticket queue.</span></div>
+        <div><b>Judged on your numbers, not ours</b><span>Enquiries, cost per enquiry and margin, reported in plain English every month.</span></div>
+        <div><b>Every asset in your name</b><span>Site, domain, listing and ad accounts are yours from day one.</span></div>
+        <div><b>Guarantees in writing</b><span>Pay nothing until live, 90-day money-back, cancel any month.</span></div>
+      </div>
       <div class="tags"><span>Founder-led</span><span>Sydney based</span><span>Australia wide</span><span>Direct mobile number</span></div>
     </div>
   </div>
