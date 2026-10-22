@@ -204,7 +204,10 @@ section{padding-block:clamp(64px,8vw,120px)}
 /* founder */
 .founder .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:start}
 @media (max-width:860px){.founder .wrap{grid-template-columns:1fr}}
-.founder .photo{aspect-ratio:4/5;border-radius:22px;background:linear-gradient(160deg,var(--surface-2),var(--surface));display:grid;place-items:center;color:var(--ink-3);font-weight:700;text-align:center;padding:24px}
+.founder .photo{aspect-ratio:4/5;border-radius:22px;background:var(--ink);display:grid;place-content:center;text-align:center;padding:24px;color:#fff}
+.founder .photo span{font-size:clamp(4rem,10vw,7rem);font-weight:900;letter-spacing:-.05em;line-height:1;color:var(--mark)}
+.founder .photo small{display:block;margin-top:12px;font-weight:700;color:#C9D3E6;font-size:1rem}
+@media (max-width:860px){.founder .photo{aspect-ratio:16/7}}
 .founder p{color:var(--ink-2);margin-top:18px;font-size:1.08rem;max-width:58ch}
 .founder .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
 .founder p + p{margin-top:14px}
@@ -554,8 +557,7 @@ footer .cols{display:flex;flex-wrap:wrap;gap:12px 32px;font-weight:600}
 
 <section id="why" class="founder">
   <div class="wrap">
-    <!-- REPLACE: founder photo. -->
-    <div class="photo">Founder photo</div>
+    <div class="photo mono"><span>MD</span><small>Founder-led</small></div>
     <div>
       <p class="kicker">Why Margin Digital</p>
       <h2>Marketing from a business owner's perspective.</h2>
