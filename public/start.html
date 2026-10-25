@@ -2,6 +2,15 @@
 <html lang="en-AU">
 <head>
 <meta charset="utf-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18536302130"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18536302130');
+</script>
+
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Margin Digital — More enquiries, or your money back</title>
 <meta name="description" content="A website and Google Ads built to get your business more enquiries. Pay nothing until the site is live. Not happy at any point? Full refund. Book a free 30-minute call.">
@@ -205,5 +214,8 @@ footer{border-top:1px solid var(--line);padding-block:30px;color:var(--ink-3);fo
 <footer><div class="wrap"><div>Margin Digital · Sydney, Australia</div><div><a href="tel:+61449022604">0449 022 604</a> · hello@margindigital.com.au · <a href="/privacy">Privacy</a></div></div></footer>
 <div class="sticky"><a class="btn" href="https://calendly.com/hello-margindigital/30min" target="_blank" rel="noopener">Book a free 30-minute call</a></div>
 <!-- GA4 / Google Ads tags go here once the accounts exist -->
+<script>
+document.addEventListener('click',function(e){var a=e.target.closest('a[href*="calendly.com"]');if(a&&window.gtag){gtag('event','conversion',{'send_to':'AW-18536302130/CALENDLY_LABEL'});}});
+</script>
 </body>
 </html>
