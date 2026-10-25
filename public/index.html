@@ -54,6 +54,7 @@ h4{font-size:1.1rem}
 p{margin:0}
 .wrap{max-width:1180px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
 section{padding-block:clamp(64px,8vw,120px)}
+section[id]{scroll-margin-top:72px}
 .lead{font-size:clamp(1.15rem,1.7vw,1.4rem);color:var(--ink-2);max-width:56ch;font-weight:500}
 .kicker{font-weight:700;color:var(--accent);font-size:1rem;margin-bottom:14px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:inherit;font-weight:700;font-size:1.05rem;padding:16px 26px;border-radius:10px;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .12s ease,background .12s ease}
@@ -276,6 +277,24 @@ footer .cols{display:flex;flex-wrap:wrap;gap:12px 32px;font-weight:600}
   .sticky .btn{width:100%}
   body{padding-bottom:84px}
 }
+.offer{padding-block:64px;border-top:1px solid var(--line)}
+.offer .cta-top{margin-top:18px}
+@media (max-width:860px){.offer .cta-top .btn{width:100%;text-align:center}}
+.offer .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:start}
+.offer h2{font-size:clamp(1.9rem,3.6vw,2.7rem);line-height:1.1;margin:0}
+.offer .price{display:flex;align-items:baseline;gap:8px;margin-top:22px}
+.offer .price b{font-size:2.6rem;letter-spacing:-.02em;color:var(--accent)}
+.offer .price span{color:var(--ink-2)}
+.offer .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px;box-shadow:0 10px 30px rgba(11,30,63,.06)}
+.offer .card h3{margin:0 0 8px;font-size:1.15rem}
+.offer .card ul{margin:14px 0 0;padding-left:18px;color:var(--ink-2)}
+.offer .card li{margin:6px 0}
+.offer .card .btn{width:100%;margin-top:18px;text-align:center}
+.offer .owner{margin-top:18px;padding:16px 18px;border-left:4px solid var(--accent);background:var(--surface);border-radius:0 10px 10px 0}
+.offer .card .tel{display:block;text-align:center;margin-top:12px;font-weight:700}
+@media (max-width:860px){.offer{padding-block:48px}.offer .wrap{grid-template-columns:1fr;gap:22px}.offer .price b{font-size:2.2rem}}
+.top .call{display:none}
+@media (max-width:860px){.top .btn{display:none}.top .call{display:inline-flex;align-items:center;gap:6px;font-weight:700;color:var(--accent);white-space:nowrap}}
 </style>
 </head>
 <body>
@@ -290,6 +309,7 @@ footer .cols{display:flex;flex-wrap:wrap;gap:12px 32px;font-weight:600}
       <a href="#pricing">Pricing</a>
       <a href="#why">Why us</a>
     </nav>
+    <a class="call" href="tel:+61449022604" aria-label="Call 0449 022 604">📞 0449 022 604</a>
     <a class="btn btn-primary" href="https://calendly.com/hello-margindigital/30min" target="_blank" rel="noopener">Book a free call</a>
   </div>
 </header>
@@ -475,6 +495,46 @@ footer .cols{display:flex;flex-wrap:wrap;gap:12px 32px;font-weight:600}
 </section>
 
 
+<section id="website" class="offer">
+  <div class="wrap">
+    <div>
+      <p class="kicker">Website design</p>
+      <h2>A website built to turn visitors into enquiries.</h2>
+      <div class="price"><b>$2,500</b><span>fixed price, once. AUD ex GST.</span></div>
+      <div class="cta-top"><a class="btn btn-primary" href="https://calendly.com/hello-margindigital/30min" target="_blank" rel="noopener">Book a free 30-minute call</a></div>
+      <p class="lead" style="margin-top:16px">Built for gyms, clinics, salons, trades and local services. One price, published upfront, and nothing is invoiced until the site is live and you have approved it.</p>
+      <div class="owner"><strong>Built by a business owner, not a sales team.</strong> I run my own business and have hired agencies before. You deal directly with the person building your site, and if you are not happy at any point, every dollar is refunded.</div>
+    </div>
+    <div class="card">
+      <h3>Full money-back guarantee</h3>
+      <p style="margin:0;color:var(--ink-2)">Not happy at any stage? Say so and you get the whole amount back. You keep the site.</p>
+      <ul><li>Fixed $2,500, no monthly fees for the site</li><li>Mobile-first and fast loading</li><li>Google Business Profile set up</li><li>Founding client rates locked in</li></ul>
+      <a class="btn btn-primary" href="https://calendly.com/hello-margindigital/30min" target="_blank" rel="noopener">Book a free 30-minute call</a>
+      <a class="tel" href="tel:+61449022604">Or call 0449 022 604</a>
+    </div>
+  </div>
+</section>
+
+<section id="ads" class="offer" style="background:var(--surface)">
+  <div class="wrap">
+    <div>
+      <p class="kicker">Google and Meta ads management</p>
+      <h2>Google Ads for small business, managed for a flat fee.</h2>
+      <div class="price"><b>$799</b><span>per month for Google Ads or Meta Ads. Both together: <strong>$1,299</strong>/month.</span></div>
+      <div class="cta-top"><a class="btn btn-primary" href="https://calendly.com/hello-margindigital/30min" target="_blank" rel="noopener">Book a free 30-minute call</a></div>
+      <p class="lead" style="margin-top:16px">A flat fee, not a percentage of your ad spend. Leads, not vanity metrics. For trades, clinics, gyms and local services across Sydney.</p>
+      <div class="owner"><strong>Run by a business owner who has hired agencies before.</strong> I know what it is like to pay a retainer and get a report you cannot read. You get the person running your account on the phone, and a full money-back guarantee if you are not happy.</div>
+    </div>
+    <div class="card">
+      <h3>Full money-back guarantee</h3>
+      <p style="margin:0;color:var(--ink-2)">If you are unhappy at any point, the whole amount you have paid us is refunded. Ad spend is paid by you directly to Google and Meta.</p>
+      <ul><li>Google Ads $799/mo or Meta Ads $799/mo</li><li>Complete Growth (both) $1,299/mo</li><li>Pricing published upfront</li><li>Founding client rates locked in for life</li></ul>
+      <a class="btn btn-primary" href="https://calendly.com/hello-margindigital/30min" target="_blank" rel="noopener">Book a free 30-minute call</a>
+      <a class="tel" href="tel:+61449022604">Or call 0449 022 604</a>
+    </div>
+  </div>
+</section>
+
 <section id="pricing" class="pricing">
   <div class="wrap">
     <p class="kicker">Founding client pricing</p>
@@ -621,7 +681,7 @@ footer .cols{display:flex;flex-wrap:wrap;gap:12px 32px;font-weight:600}
       <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
       <div class="field full"><label for="site">Website (if you have one)</label><input id="site" name="site" type="text" inputmode="url" placeholder="yourbusiness.com.au"></div>
       <div class="field full"><label for="goal">What would you like more of?</label><textarea id="goal" name="goal" placeholder="e.g. hot water jobs in the Shire, fewer tyre-kickers, more reviews"></textarea></div>
-      <div class="hp" aria-hidden="true"><label for="website">Leave blank</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+      <div class="hp" aria-hidden="true"><label for="hp-website">Leave blank</label><input id="hp-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
       <div class="msg" id="form-msg" role="status" aria-live="polite"></div>
       <div class="form-foot">
         <button class="btn btn-primary" type="submit" id="submit">Send it to the founder</button>
@@ -683,7 +743,7 @@ footer .cols{display:flex;flex-wrap:wrap;gap:12px 32px;font-weight:600}
 })();
 </script>
 <script>
-document.addEventListener('click',function(e){var a=e.target.closest('a[href*="calendly.com"]');if(a&&window.gtag){gtag('event','conversion',{'send_to':'AW-18536302130/KGlTCJmvlKkdELKM5oZF'});}});
+document.addEventListener('click',function(e){var a=e.target.closest('a[href*="calendly.com"]');if(a&&window.gtag){gtag('event','conversion',{'send_to':'AW-18536302130/KGlTCJmvlKkdELKM5oZF'});}var t=e.target.closest('a[href^="tel:"]');if(t&&window.gtag){gtag('event','phone_click',{'send_to':'AW-18536302130'});}});
 </script>
 </body>
 </html>
