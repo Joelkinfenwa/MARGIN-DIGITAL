@@ -56,8 +56,12 @@ section{padding-block:clamp(72px,9vw,128px)}
 
 /* hero */
 .hero{padding-block:clamp(56px,8vw,112px) clamp(48px,6vw,88px)}
-.hero .wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:end}
-.hero .photo{transform:rotate(1.5deg) translateY(10px);margin-right:-24px;box-shadow:0 30px 60px rgba(11,30,63,.14)}
+.hero .wrap{display:grid;grid-template-columns:1.3fr .7fr;gap:40px;align-items:center}
+.device{position:relative;justify-self:center;width:min(300px,70vw)}
+.device .frame{border-radius:44px;background:#0B1E3F;padding:12px;box-shadow:0 40px 80px rgba(11,30,63,.22),inset 0 0 0 2px rgba(255,255,255,.08);transform:rotate(2deg)}
+.device .frame img{border-radius:34px;width:100%;height:auto;display:block}
+.device .tag{position:absolute;left:-28px;bottom:48px;background:var(--mark);color:var(--ink);font-weight:800;font-size:.92rem;padding:10px 14px;border-radius:10px;transform:rotate(-3deg);box-shadow:0 8px 20px rgba(11,30,63,.15)}
+@media (max-width:900px){.device{justify-self:start;margin-top:8px}.device .frame{transform:none}.device .tag{left:auto;right:-10px}}
 .hero .photo::after{content:"";position:absolute;inset:0;pointer-events:none;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .07 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");mix-blend-mode:multiply;opacity:.9}
 .hero .tag{position:absolute;left:-14px;bottom:26px;background:var(--mark);color:var(--ink);font-weight:800;font-size:.92rem;padding:10px 14px;border-radius:10px;transform:rotate(-3deg);box-shadow:0 8px 20px rgba(11,30,63,.15)}
 .ul{position:relative;white-space:nowrap}
@@ -126,7 +130,7 @@ section{padding-block:clamp(72px,9vw,128px)}
 .audit .card li{margin:6px 0}
 
 /* founder */
-.founder .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}
+.founder .wrap{display:grid;grid-template-columns:1fr;max-width:820px}
 @media (max-width:860px){.founder .wrap{grid-template-columns:1fr}}
 .founder p{color:var(--ink-2);margin-top:16px;max-width:58ch;font-size:1.08rem}
 .founder .sig{margin-top:24px;font-weight:800}.founder .sig small{display:block;font-weight:600;color:var(--ink-3)}
@@ -203,9 +207,9 @@ footer .cols{display:flex;flex-wrap:wrap;gap:8px 22px}
       </div>
       <div class="direct"><b>Direct access.</b> My mobile is 0449 022 604. I answer it.</div>
     </div>
-    <div class="photo r" data-photo="hero">
-      <picture><source srcset="/img/hero-desk.webp" type="image/webp"><img src="/img/hero-desk.jpg" alt="A tradesman walking up a driveway at sunrise, toolbox in hand" width="1400" height="1750" fetchpriority="high"></picture>
-      <div class="tag">Built for the trades</div>
+    <div class="device r" aria-label="The Margin Digital website design page, shown on a phone">
+      <div class="frame"><picture><source srcset="/img/phone-website.webp" type="image/webp"><img src="/img/phone-website.jpg" alt="Margin Digital website design page on a phone" width="780" height="1688" fetchpriority="high"></picture></div>
+      <div class="tag">One of ours, on a phone</div>
     </div>
   </div>
 </section>
@@ -310,9 +314,6 @@ footer .cols{display:flex;flex-wrap:wrap;gap:8px 22px}
 
 <section id="about" class="founder">
   <div class="wrap">
-    <div class="photo r" data-photo="founder">
-      <picture><source srcset="/img/about-phone.webp" type="image/webp"><img src="/img/about-phone.jpg" alt="Checking a website on a phone from the tailgate of a ute" width="1400" height="1750" loading="lazy"></picture>
-    </div>
     <div class="r">
       <p class="kicker">About</p>
       <h2>Small on purpose.</h2>
