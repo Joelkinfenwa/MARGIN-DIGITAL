@@ -35,7 +35,7 @@ h2{font-size:clamp(1.9rem,4vw,3rem)}h3{font-size:1.2rem}
 .btn .arr{transition:transform .15s}.btn:hover .arr{transform:translateX(3px)}
 :focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 section{padding-block:clamp(72px,9vw,128px)}
-.kicker{font-weight:700;color:var(--ink-3);font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:18px}
+.kicker{font-weight:700;color:var(--accent);font-size:.95rem;margin-bottom:16px}
 .lead{font-size:clamp(1.15rem,1.7vw,1.4rem);color:var(--ink-2);max-width:56ch}
 .sub{color:var(--ink-2);max-width:60ch}
 
@@ -56,8 +56,15 @@ section{padding-block:clamp(72px,9vw,128px)}
 
 /* hero */
 .hero{padding-block:clamp(56px,8vw,112px) clamp(48px,6vw,88px)}
-.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
-@media (max-width:900px){.hero .wrap{grid-template-columns:1fr;gap:32px}}
+.hero .wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:end}
+.hero .photo{transform:rotate(1.5deg) translateY(10px);margin-right:-24px;box-shadow:0 30px 60px rgba(11,30,63,.14)}
+.hero .photo::after{content:"";position:absolute;inset:0;pointer-events:none;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .07 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");mix-blend-mode:multiply;opacity:.9}
+.hero .tag{position:absolute;left:-14px;bottom:26px;background:var(--mark);color:var(--ink);font-weight:800;font-size:.92rem;padding:10px 14px;border-radius:10px;transform:rotate(-3deg);box-shadow:0 8px 20px rgba(11,30,63,.15)}
+.ul{position:relative;white-space:nowrap}
+.ul svg{position:absolute;left:-2%;bottom:-.08em;width:104%;height:.32em;overflow:visible}
+.ul path{fill:none;stroke:var(--mark);stroke-width:9;stroke-linecap:round}
+@media (max-width:900px){.hero .photo{transform:none;margin-right:0}}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr;gap:28px;align-items:start}}
 .hero .lead{margin-top:24px}
 .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
 @media (max-width:560px){.cta-row .btn{width:100%}}
@@ -123,7 +130,8 @@ section{padding-block:clamp(72px,9vw,128px)}
 @media (max-width:860px){.founder .wrap{grid-template-columns:1fr}}
 .founder p{color:var(--ink-2);margin-top:16px;max-width:58ch;font-size:1.08rem}
 .founder .sig{margin-top:24px;font-weight:800}.founder .sig small{display:block;font-weight:600;color:var(--ink-3)}
-.founder .photo{position:sticky;top:100px}
+.founder .photo{position:sticky;top:100px;transform:rotate(-1deg)}
+.founder .photo::after{content:"";position:absolute;inset:0;pointer-events:none;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .07 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");mix-blend-mode:multiply}
 @media (max-width:860px){.founder .photo{position:static}}
 
 /* faq */
@@ -187,16 +195,17 @@ footer .cols{display:flex;flex-wrap:wrap;gap:8px 22px}
   <div class="wrap">
     <div class="r">
       <p class="kicker">Websites and Google Ads for local businesses</p>
-      <h1>Websites and Google Ads built to bring in customers.</h1>
-      <p class="lead">For trades, clinics, gyms and local services across Australia. Prices are on this page, you deal directly with the founder, and if you are not happy at any point you get every dollar back.</p>
+      <h1>Websites and Google Ads built to bring in <span class="ul">customers<svg viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M2 7 C 20 3, 40 9, 60 5 S 90 7, 98 4"/></svg></span>.</h1>
+      <p class="lead">For trades, clinics, gyms and local services. Started in the Sutherland Shire, working Australia-wide. Prices are on this page, you deal with me, and if you are not happy at any point you get every dollar back.</p>
       <div class="cta-row">
         <a class="btn" href="https://calendly.com/hello-margindigital/30min" target="_blank" rel="noopener">Book a free 30-minute call <span class="arr">→</span></a>
         <a class="btn ghost" href="#audit">Get a free audit</a>
       </div>
-      <div class="direct"><b>Direct access.</b> You deal with Joel, the person doing the work.</div>
+      <div class="direct"><b>Direct access.</b> My mobile is 0449 022 604. I answer it.</div>
     </div>
     <div class="photo r" data-photo="hero">
-      <picture><source srcset="/img/hero-desk.webp" type="image/webp"><img src="/img/hero-desk.jpg" alt="A laptop, notebook and coffee on a desk by a window" width="1400" height="1750" fetchpriority="high"></picture>
+      <picture><source srcset="/img/hero-desk.webp" type="image/webp"><img src="/img/hero-desk.jpg" alt="Laptop and coffee on a kitchen bench, early morning" width="1400" height="1750" fetchpriority="high"></picture>
+      <div class="tag">Where the work gets done</div>
     </div>
   </div>
 </section>
@@ -213,7 +222,7 @@ footer .cols{display:flex;flex-wrap:wrap;gap:8px 22px}
   <div class="wrap">
     <div class="r">
       <p class="kicker">Services</p>
-      <h2>Three things, done properly, at a price you can see.</h2>
+      <h2>Three things. Done properly. Prices on the page.</h2>
     </div>
     <div class="svc">
       <div class="card r">
@@ -243,7 +252,7 @@ footer .cols{display:flex;flex-wrap:wrap;gap:8px 22px}
   <div class="wrap">
     <div class="r">
       <p class="kicker">How it is measured</p>
-      <h2>Enquiries and what each one cost. That is the report.</h2>
+      <h2>Enquiries, and what each one cost you. That is the whole report.</h2>
       <p class="sub" style="margin-top:18px">Every call and form is tracked from day one, so results are numbers you can check, not adjectives. Once a month you get one page and a call to walk through it.</p>
       <ul>
         <li>Calls and enquiries, counted by channel</li>
@@ -281,8 +290,8 @@ footer .cols{display:flex;flex-wrap:wrap;gap:8px 22px}
   <div class="wrap">
     <div class="r">
       <p class="kicker">Free audit</p>
-      <h2>Not sure what is holding you back? Start here.</h2>
-      <p class="sub" style="margin-top:18px">Send your business name and website. Within one business day you get a short video from Joel with what he would change and what it would cost. No obligation.</p>
+      <h2>Not sure what is holding you back? Send me the site.</h2>
+      <p class="sub" style="margin-top:18px">Send your business name and website. Within one business day I send back a short screen-recorded video: what I would change, in what order, and what it would cost. No obligation, no follow-up calls unless you want one.</p>
     </div>
     <div class="two">
       <div class="card r">
@@ -302,11 +311,11 @@ footer .cols{display:flex;flex-wrap:wrap;gap:8px 22px}
 <section id="about" class="founder">
   <div class="wrap">
     <div class="photo r" data-photo="founder">
-      <picture><source srcset="/img/about-phone.webp" type="image/webp"><img src="/img/about-phone.jpg" alt="Checking a website on a phone on a suburban shopping strip" width="1400" height="1750" loading="lazy"></picture>
+      <picture><source srcset="/img/about-phone.webp" type="image/webp"><img src="/img/about-phone.jpg" alt="Parked across from a strip of local shops, phone on the dash" width="1400" height="1750" loading="lazy"></picture>
     </div>
     <div class="r">
       <p class="kicker">About</p>
-      <h2>Small by design. Direct access.</h2>
+      <h2>Small on purpose.</h2>
       <p>I started Margin Digital because I have spent years on the other side of the agency relationship. I have built businesses, spent my own money on advertising, hired agencies, and been let down by more than one of them.</p>
       <p>What I learned is that good marketing is not a flashy figure on a slide. It shows up in the health of the business: what a customer costs to acquire, what they are worth, and whether they come back. I understand those numbers because I have had my own money on the line against them.</p>
       <p>Margin Digital is deliberately small. You deal with me, the prices are on the page before you call, every account is in your name, and if you are not happy at any point you get every dollar back. That is the agency I wanted to hire. It did not exist, so I built it.</p>
