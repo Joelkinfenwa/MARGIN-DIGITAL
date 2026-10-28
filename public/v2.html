@@ -14,7 +14,7 @@
 </script>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.ico" sizes="32x32"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Margin Digital — Websites and Google Ads for local businesses</title>
+<title>Margin Digital — Get your phone ringing. Websites and Google Ads for trades.</title>
 <meta name="description" content="Websites and Google Ads that bring in customers for trades, clinics, gyms and local services. Fixed prices published upfront, direct access to the founder, and a full money-back guarantee.">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -174,22 +174,74 @@ footer .cols{display:flex;flex-wrap:wrap;gap:8px 22px}
   .sticky{display:flex;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:10;padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-top:1px solid var(--line)}
   .sticky .btn{flex:1;padding:14px 10px;font-size:1rem}.sticky .btn.ghost{flex:0 0 auto}
 }
+
+/* ===== loud version ===== */
+.annc{background:var(--mark);color:var(--ink);font-weight:800;text-align:center;font-size:.98rem;padding:10px 16px}
+.annc a{text-decoration:underline;text-underline-offset:3px}
+.hero{padding-top:clamp(36px,5vw,64px);padding-bottom:clamp(40px,6vw,72px)}
+.hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:44px;align-items:center}
+@media(max-width:900px){.hero .wrap{grid-template-columns:1fr}}
+.hero h1{font-size:clamp(3rem,7.6vw,6.4rem);line-height:.95;letter-spacing:-.045em}
+.hl{background:linear-gradient(transparent 58%,var(--mark) 58%,var(--mark) 92%,transparent 92%);padding:0 .06em}
+.hero .lead{margin-top:22px;font-size:clamp(1.15rem,1.8vw,1.45rem);color:var(--ink-2)}
+.hero .ticks{display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:22px;font-weight:700;font-size:1rem}
+.hero .ticks span:before{content:"✓";color:var(--ok);margin-right:7px;font-weight:900}
+.pcard{background:var(--ink);color:#fff;border-radius:22px;padding:30px;box-shadow:0 30px 70px rgba(11,30,63,.28);position:relative}
+.pcard .badge{position:absolute;top:-14px;left:24px;background:var(--mark);color:var(--ink);font-weight:900;font-size:.82rem;padding:6px 12px;border-radius:999px;letter-spacing:.02em}
+.pcard h2{font-size:clamp(1.6rem,2.6vw,2.1rem);color:#fff}
+.pcard p{color:#C9D3E6;margin-top:10px;font-size:1rem}
+.pcard ol{margin:18px 0 0;padding:0;list-style:none;display:grid;gap:10px;counter-reset:s}
+.pcard li{counter-increment:s;display:flex;gap:12px;align-items:flex-start;font-weight:600;font-size:.98rem}
+.pcard li:before{content:counter(s);flex:0 0 26px;height:26px;border-radius:50%;background:var(--mark);color:var(--ink);font-weight:900;display:grid;place-content:center;font-size:.85rem}
+.pcard .stack{display:grid;gap:10px;margin-top:22px}
+.bigbtn{display:flex;align-items:center;justify-content:center;gap:10px;font:inherit;font-weight:900;font-size:1.12rem;padding:18px 22px;border-radius:14px;text-decoration:none;background:var(--mark);color:var(--ink);transition:transform .15s}
+.bigbtn:hover{transform:translateY(-2px)}
+.bigbtn.w{background:#fff;color:var(--ink)}.bigbtn.o{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.35)}
+.pcard small{display:block;margin-top:12px;color:#93A3BF;font-size:.85rem;text-align:center}
+.tick{background:var(--ink);color:#fff;overflow:hidden;padding:18px 0;border-block:4px solid var(--mark)}
+.tick .t{display:flex;gap:42px;white-space:nowrap;width:max-content;animation:tk 32s linear infinite;font-weight:900;font-size:clamp(1.2rem,2.4vw,1.8rem);letter-spacing:-.01em;text-transform:uppercase}
+.tick .t span:after{content:"✦";color:var(--mark);margin-left:42px}
+@keyframes tk{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.tick .t{animation:none}}
+.how3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}@media(max-width:820px){.how3{grid-template-columns:1fr}}
+.how3 div{border:2px solid var(--ink);border-radius:20px;padding:26px;box-shadow:8px 8px 0 var(--mark);background:#fff}
+.how3 b{display:block;font-size:3.2rem;font-weight:900;line-height:1;letter-spacing:-.04em}
+.how3 h3{margin-top:10px;font-size:1.35rem}.how3 p{margin-top:8px;color:var(--ink-2);font-size:1rem}
+.mock{margin-top:34px;display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}@media(max-width:820px){.mock{grid-template-columns:1fr}}
+.serp{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;font-family:Arial,Helvetica,sans-serif;box-shadow:0 20px 50px rgba(11,30,63,.12)}
+.serp .q{background:#F1F3F4;border-radius:24px;padding:11px 16px;font-size:.95rem;color:#202124}
+.serp .sp{font-size:.78rem;font-weight:700;margin-top:16px;color:#202124}.serp .u{font-size:.82rem;color:#202124;margin-top:4px}
+.serp .h{color:#1a0dab;font-size:1.12rem;margin-top:6px;line-height:1.3}.serp .st{color:#fbbc04;font-size:.85rem;margin-top:4px}.serp .st span{color:#4d5156}
+.serp .d{color:#4d5156;font-size:.88rem;margin-top:5px;line-height:1.5}
+.serp .c{display:inline-block;margin-top:10px;background:#1a73e8;color:#fff;border-radius:20px;padding:8px 14px;font-weight:700;font-size:.88rem}
+.serp .dim{opacity:.4;border-top:1px solid #eee;margin-top:16px;padding-top:12px}
+.guar{background:var(--mark)!important;color:var(--ink)!important}
+.guar h2{font-size:clamp(2.4rem,6vw,4.6rem)!important;color:var(--ink)!important}
+.guar p{color:var(--ink)!important}.guar .kicker{color:var(--ink)!important}
+.guar .big{color:var(--ink)!important}.guar .big small{color:var(--ink-2)!important}
+.final{background:var(--ink);color:#fff;text-align:center}
+.final h2{color:#fff;font-size:clamp(2.4rem,6vw,4.4rem)}.final h2 .hl{color:var(--ink)}
+.final p{color:#C9D3E6;margin:16px auto 0;max-width:52ch;font-size:1.15rem}
+.final .row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:28px}
+.final .bigbtn{min-width:240px}
+.sticky .btn.lime{background:var(--mark);color:var(--ink)}
 </style>
 </head>
 <body>
 
+<div class="annc">Free: see your business at the top of Google, built for you before you pay a cent. <a href="sms:+61449022604?&body=Hi%20Joel%2C%20I%27d%20like%20a%20free%20Google%20preview%20for%20my%20business%3A%20">Text me to get yours →</a></div>
 <header class="top" id="top">
   <div class="wrap">
     <a class="brand" href="/"><span class="mk" aria-hidden="true"></span>Margin Digital</a>
     <nav class="nav" aria-label="Main">
       <a href="#services">Services</a>
-      <a href="#measure">How it works</a>
+      <a href="#how">How it works</a>
       <a href="#guarantee">Guarantee</a>
-      <a href="#audit">Free audit</a>
+      <a href="#preview">Free preview</a>
       <a href="#about">About</a>
     </nav>
     <a class="call" href="tel:+61449022604">0449 022 604</a>
-    <a class="btn" href="https://calendly.com/hello-margindigital/30min" target="_blank" rel="noopener">Book a free call</a>
+    <a class="btn" href="sms:+61449022604?&body=Hi%20Joel%2C%20I%27d%20like%20a%20free%20Google%20preview%20for%20my%20business%3A%20">Get my free preview</a>
   </div>
 </header>
 
@@ -198,27 +250,41 @@ footer .cols{display:flex;flex-wrap:wrap;gap:8px 22px}
 <section class="hero">
   <div class="wrap">
     <div class="r">
-      <p class="kicker">Websites and Google Ads for local businesses</p>
-      <h1>Websites and Google Ads built to bring in <span class="ul">customers<svg viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M2 7 C 20 3, 40 9, 60 5 S 90 7, 98 4"/></svg></span>.</h1>
-      <p class="lead">For trades, clinics, gyms and local services. Started in the Sutherland Shire, working Australia-wide. Prices are on this page, you deal with me, and if you are not happy at any point you get every dollar back.</p>
-      <div class="cta-row">
-        <a class="btn" href="https://calendly.com/hello-margindigital/30min" target="_blank" rel="noopener">Book a free 30-minute call <span class="arr">→</span></a>
-        <a class="btn ghost" href="#audit">Get a free audit</a>
-      </div>
-      <div class="direct"><b>Direct access.</b> My mobile is 0449 022 604. I answer it.</div>
+      <p class="kicker">Websites and Google Ads for trades and local businesses</p>
+      <h1>Your phone should be <span class="hl">ringing more.</span></h1>
+      <p class="lead">When someone in your area searches for what you do, you should be the first business they see and the first number they call. I build the website, run the Google Ads, and if it does not bring you work, you get every dollar back.</p>
+      <div class="ticks"><span>Prices on the page</span><span>No lock-in</span><span>Deal with me, not an account manager</span><span>100% money back</span></div>
+      <div class="direct" style="margin-top:22px"><b>Rather just talk?</b> Call me on <a href="tel:+61449022604" style="font-weight:800">0449 022 604</a>. I answer it.</div>
     </div>
-    <div class="device r" aria-label="The Margin Digital website design page, shown on a phone">
-      <div class="frame"><picture><source srcset="/img/phone-website.webp" type="image/webp"><img src="/img/phone-website.jpg" alt="Margin Digital website design page on a phone" width="780" height="1688" fetchpriority="high"></picture></div>
-      <div class="tag">One of ours, on a phone</div>
+    <div class="pcard r" id="preview">
+      <div class="badge">FREE · NO OBLIGATION</div>
+      <h2>See your business at the top of Google. Before you spend a cent.</h2>
+      <p>I build a private preview of your ads, written from your own reviews and website, so you can judge the work first.</p>
+      <ol><li>Text me your business name</li><li>Get your private preview link within one business day</li><li>Like it? It can be live within a week</li></ol>
+      <div class="stack">
+        <a class="bigbtn" href="sms:+61449022604?&body=Hi%20Joel%2C%20I%27d%20like%20a%20free%20Google%20preview%20for%20my%20business%3A%20">Text me for my free preview →</a>
+        <a class="bigbtn o" href="https://calendly.com/hello-margindigital/30min" target="_blank" rel="noopener">Or book a 15-minute call</a>
+      </div>
+      <small>Joel · 0449 022 604 · Sutherland Shire, working Australia-wide</small>
     </div>
   </div>
 </section>
 
-<section class="strip">
-  <div class="wrap r">
-    <div><b>Fixed prices, published upfront</b><span>Website $2,500. Ads from $799 a month. No percentage of spend.</span></div>
-    <div><b>Founder-led, start to finish</b><span>No account managers, no handovers. One person, one mobile number.</span></div>
-    <div><b>Full money-back guarantee</b><span>Not happy at any point? Every dollar back, and you keep the work.</span></div>
+<div class="tick" aria-hidden="true"><div class="t"><span>Plumbers</span><span>Electricians</span><span>Builders</span><span>Roofers</span><span>Landscapers</span><span>Pool builders</span><span>Solar installers</span><span>Air conditioning</span><span>Painters</span><span>Concreters</span><span>Clinics</span><span>Local services</span><span>Plumbers</span><span>Electricians</span><span>Builders</span><span>Roofers</span><span>Landscapers</span><span>Pool builders</span><span>Solar installers</span><span>Air conditioning</span><span>Painters</span><span>Concreters</span><span>Clinics</span><span>Local services</span></div></div>
+
+<section id="how">
+  <div class="wrap">
+    <div class="r"><p class="kicker">How it works</p><h2>You see the work first. Then you decide.</h2></div>
+    <div class="how3">
+      <div class="r"><b>01</b><h3>Send your business name</h3><p>A text is enough. I look at your website, your Google listing and your reviews.</p></div>
+      <div class="r"><b>02</b><h3>Get your private preview</h3><p>A page showing your ads at the top of Google, the searches they target and the hours they run. Yours to keep either way.</p></div>
+      <div class="r"><b>03</b><h3>Go live in a week</h3><p>Say yes and I build it. Calls and enquiries are tracked from day one, and you can stop any month.</p></div>
+    </div>
+    <div class="mock">
+      <div class="r"><h2 style="font-size:clamp(1.7rem,3.4vw,2.6rem)">This is what the people searching should see.</h2><p class="sub" style="margin-top:14px">Your name, your stars, your phone number, at the top, at the moment they need you. Example shown with a placeholder business.</p>
+        <div class="cta-row" style="margin-top:22px"><a class="btn" href="sms:+61449022604?&body=Hi%20Joel%2C%20I%27d%20like%20a%20free%20Google%20preview%20for%20my%20business%3A%20">Get one for my business <span class="arr">→</span></a></div></div>
+      <div class="serp r"><div class="q">emergency plumber near me</div><div class="sp">Sponsored</div><div class="u">yourbusiness.com.au</div><div class="h">Emergency Plumber Near You | On Our Way Now | Your Business</div><div class="st">★★★★★ <span>5.0 · Your Google reviews</span></div><div class="d">Local, licensed and five-star rated. Burst pipes, blocked drains and hot water, sorted today. Upfront pricing before we start.</div><div class="c">📞 Call your number</div><div class="dim"><div class="sp">Sponsored</div><div class="h" style="font-size:1rem">Your competitor's ad</div></div></div>
+    </div>
   </div>
 </section>
 
@@ -283,32 +349,18 @@ footer .cols{display:flex;flex-wrap:wrap;gap:8px 22px}
   <div class="wrap">
     <div class="r">
       <p class="kicker">The guarantee</p>
-      <h2>Not happy at any point? Every dollar back.</h2>
+      <h2>Not happy? Every dollar back.</h2>
       <p>One sentence, no fine print. If you decide Margin Digital is not for you, say so and you are refunded in full. You keep the website, the listing, the ad accounts and the data. Ad spend is paid by you directly to Google and Meta and is not part of what we charge.</p>
     </div>
     <div class="r"><div class="big">100%<small>money back, any time, and you keep everything</small></div></div>
   </div>
 </section>
 
-<section id="audit" class="audit">
-  <div class="wrap">
-    <div class="r">
-      <p class="kicker">Free audit</p>
-      <h2>Not sure what is holding you back? Send me the site.</h2>
-      <p class="sub" style="margin-top:18px">Send your business name and website. Within one business day I send back a short screen-recorded video: what I would change, in what order, and what it would cost. No obligation, no follow-up calls unless you want one.</p>
-    </div>
-    <div class="two">
-      <div class="card r">
-        <h3>Free website audit</h3>
-        <ul><li>How the site reads on a phone in the first five seconds</li><li>Whether calls, bookings and forms actually work</li><li>What your Google listing shows and what it is missing</li></ul>
-        <a href="#contact">Request a website audit →</a>
-      </div>
-      <div class="card r">
-        <h3>Free Google Ads audit</h3>
-        <ul><li>Campaign structure and where spend is leaking</li><li>Whether calls and forms are being tracked</li><li>What the first three changes would be</li></ul>
-        <a href="#contact">Request an ads audit →</a>
-      </div>
-    </div>
+<section class="final" id="audit">
+  <div class="wrap r">
+    <h2>Stop wondering who is getting <span class="hl">your calls.</span></h2>
+    <p>Text me your business name. You will have a private preview of your Google ads within one business day, free, whether you go ahead or not.</p>
+    <div class="row"><a class="bigbtn" href="sms:+61449022604?&body=Hi%20Joel%2C%20I%27d%20like%20a%20free%20Google%20preview%20for%20my%20business%3A%20">Text me for my free preview →</a><a class="bigbtn w" href="tel:+61449022604">Call 0449 022 604</a></div>
   </div>
 </section>
 
@@ -346,7 +398,7 @@ footer .cols{display:flex;flex-wrap:wrap;gap:8px 22px}
   <div class="wrap">
     <div class="r">
       <p class="kicker">Get started</p>
-      <h2>Request your free audit or start a project.</h2>
+      <h2>Or send the details here.</h2>
       <p class="sub" style="margin-top:18px">Prefer to pick a time now? <a href="https://calendly.com/hello-margindigital/30min" target="_blank" rel="noopener" style="font-weight:700">Book a 30-minute call</a>. Otherwise send the form and you will hear back within one business day.</p>
       <div class="direct"><b>Prefer to talk?</b> Call 0449 022 604 or email hello@margindigital.com.au</div>
     </div>
@@ -354,7 +406,7 @@ footer .cols{display:flex;flex-wrap:wrap;gap:8px 22px}
       <div class="field full">
         <label>What are you after?</label>
         <div class="seg">
-          <label><input type="radio" name="interest" value="Free audit" checked>Free audit</label>
+          <label><input type="radio" name="interest" value="Free Google preview" checked>Free preview</label>
           <label><input type="radio" name="interest" value="Website">Website</label>
           <label><input type="radio" name="interest" value="Ads">Ads</label>
           <label><input type="radio" name="interest" value="The whole system">The whole system</label>
@@ -391,7 +443,7 @@ footer .cols{display:flex;flex-wrap:wrap;gap:8px 22px}
   </div>
 </footer>
 
-<div class="sticky"><a class="btn ghost" href="tel:+61449022604" aria-label="Call 0449 022 604">Call</a><a class="btn" href="https://calendly.com/hello-margindigital/30min" target="_blank" rel="noopener">Book a free call</a></div>
+<div class="sticky"><a class="btn ghost" href="tel:+61449022604" aria-label="Call 0449 022 604">Call</a><a class="btn lime" href="sms:+61449022604?&body=Hi%20Joel%2C%20I%27d%20like%20a%20free%20Google%20preview%20for%20my%20business%3A%20">Free Google preview</a></div>
 
 <script>
 (function(){
@@ -437,7 +489,7 @@ footer .cols{display:flex;flex-wrap:wrap;gap:8px 22px}
     }
   });
 })();
-document.addEventListener('click',function(e){var a=e.target.closest('a[href*="calendly.com"]');if(a&&window.gtag){gtag('event','conversion',{'send_to':'AW-18536302130/KGlTCJmvlKkdELKM5oZF'});}var t=e.target.closest('a[href^="tel:"]');if(t&&window.gtag){gtag('event','conversion',{'send_to':'AW-18536302130/4WSZCLryz6kdELKM5oZF','value':1.0,'currency':'AUD'});}});
+document.addEventListener('click',function(e){var a=e.target.closest('a[href*="calendly.com"]');if(a&&window.gtag){gtag('event','conversion',{'send_to':'AW-18536302130/KGlTCJmvlKkdELKM5oZF'});}var t=e.target.closest('a[href^="tel:"],a[href^="sms:"]');if(t&&window.gtag){gtag('event','conversion',{'send_to':'AW-18536302130/4WSZCLryz6kdELKM5oZF','value':1.0,'currency':'AUD'});}});
 </script>
 </body>
 </html>
