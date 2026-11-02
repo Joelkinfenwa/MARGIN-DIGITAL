@@ -131,7 +131,7 @@ footer{padding:36px 0 110px;text-align:center;color:var(--ink3);font-size:.9rem}
 .tool{background:var(--card);border-block:1px solid var(--line);scroll-margin-top:60px}#book{scroll-margin-top:60px}
 .tgrid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}@media(max-width:900px){.tgrid{grid-template-columns:1fr;gap:28px}}
 .auditcard{background:var(--sage-l);border-radius:26px;padding:28px}.auditcard b{font-size:1.3rem;font-weight:700}.auditcard p{color:var(--ink2);margin:4px 0 16px;font-size:.98rem}
-.auditcard form{display:grid;gap:10px}
+.auditcard form{display:grid;gap:10px}.auditcard form[hidden]{display:none}
 .auditcard input,.auditcard select{font:inherit;font-size:1rem;padding:13px 15px;border:1.5px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);width:100%}
 .auditcard input:focus,.auditcard select:focus{outline:none;border-color:var(--sage)}
 .auditcard .btn{width:100%;margin-top:4px}
@@ -151,7 +151,7 @@ footer{padding:36px 0 110px;text-align:center;color:var(--ink3);font-size:.9rem}
   try{var r=await fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:'Not given',business:B,mobile:M,email:E||undefined,interest:'Free video audit: '+N,site:W,goal:V+' in '+S,page:location.href})});
    if(!r.ok)throw 0;
    if(window.gtag)gtag('event','generate_lead',{niche:N});
-   f.hidden=true;msg.innerHTML='<b>Got it.</b> I will record your video audit for '+B+' and send it to '+M+' within one business day. Joel';
+   f.hidden=true;f.style.display='none';msg.innerHTML='<b>Got it.</b> I will record your video audit for '+B+' and send it to '+M+' within one business day. Joel';
   }catch(err){
    var body=encodeURIComponent('Hi Joel, I would like a free video audit for '+B+' ('+V+', '+S+')'+(W?' - '+W:'')+'.');
    msg.innerHTML='One more tap to send it: <a href="sms:+61449022604?&body='+body+'">send by text</a>, or call <a href="tel:+61449022604">0449 022 604</a>.';
