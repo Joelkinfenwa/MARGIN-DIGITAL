@@ -114,7 +114,7 @@ footer{padding:36px 0 110px;text-align:center;color:var(--ink3);font-size:.9rem}
    <div class="serp live"><div class="q" id="o-q">dentist caringbah</div><div class="sp">Sponsored</div><div class="u" id="o-u">yourbusiness.com.au</div><div class="h" id="o-h">Your ad appears here</div><div class="st">★★★★★ <span>Your Google reviews</span></div><div class="d" id="o-d">Type your business name and suburb, and your ad will appear here.</div><div class="c" id="o-c">Call now</div><div class="dim"><div class="sp">Sponsored</div><div class="h" style="font-size:1rem">A competitor's ad</div></div></div>
    <div id="cap" class="cap" hidden>
     <b>Send this to your phone, plus the full version</b>
-    <p>I will text you this preview now, then follow up with the full version for <span id="cap-b">your business</span>: your real reviews, the exact searches and a suggested budget. Free, no obligation.</p>
+    <p>I will text you this preview, then follow up with the full version for <span id="cap-b">your business</span>: your real reviews, the exact searches and a suggested budget. Free, no obligation.</p>
     <form id="cf"><input id="c-m" required type="tel" inputmode="tel" placeholder="Your mobile number" autocomplete="tel" style="font-size:1.1rem;padding:15px 16px"><div class="two"><input id="c-n" placeholder="First name (optional)" autocomplete="given-name"><input id="c-e" type="email" placeholder="Email (optional)" autocomplete="email"></div><input id="c-hp" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true"><button class="btn" type="submit" id="c-go">Send it to my phone</button></form>
     <div id="c-msg" class="cmsg" role="status"></div>
    </div>
@@ -159,7 +159,7 @@ footer{padding:36px 0 110px;text-align:center;color:var(--ink3);font-size:.9rem}
   try{var r=await fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:nm||'Not given',business:b.value.trim(),mobile:mb,email:em||undefined,interest:'Instant preview: '+N,site:'',goal:v.value+' in '+s.value.trim(),page:location.href})});
    if(!r.ok)throw 0;
    if(window.gtag)gtag('event','generate_lead',{niche:N});
-   cf.hidden=true;msg.innerHTML='<b>Sent.</b> Your preview for '+t(b.value)+' is on its way to '+mb+', and the full version follows within one business day. Joel';
+   cf.hidden=true;msg.innerHTML='<b>Sent.</b> I will text your preview for '+t(b.value)+' to '+mb+' shortly, and the full version follows within one business day. Joel';
   }catch(err){
    var body=encodeURIComponent('Hi Joel, I would like the full Google preview for '+detail+'.'+(nm?' My name is '+nm+'.':''));
    msg.innerHTML='One more tap to send it: <a href="sms:+61449022604?&body='+body+'">send by text</a> or <a href="https://calendly.com/hello-margindigital/30min?name='+encodeURIComponent(nm)+'" target="_blank" rel="noopener">book a time</a>.';
