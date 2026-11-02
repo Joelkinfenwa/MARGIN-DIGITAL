@@ -141,7 +141,7 @@ footer{padding:36px 0 110px;text-align:center;color:var(--ink3);font-size:.9rem}
  function dom(x){return x.toLowerCase().replace(/&/g,'and').replace(/[^a-z0-9]+/g,'')+'.com.au'}
  function render(){var bn=t(b.value||'Your Business'),sb=t(s.value||'Your Suburb'),sv=v.value;
   document.getElementById('o-q').textContent=(sv+' '+(s.value||'near me')).toLowerCase();
-  document.getElementById('o-u').textContent=b.value?dom(b.value):'yourbusiness.com.au';
+  var qd=new URLSearchParams(location.search).get('d');document.getElementById('o-u').textContent=(qd&&b.value===(new URLSearchParams(location.search).get('b')||''))?qd:(b.value?dom(b.value):'yourbusiness.com.au');
   var h=sv+' '+sb+' | '+C.h2+' | '+bn; document.getElementById('o-h').textContent=h;
   document.getElementById('o-d').textContent=C.d; document.getElementById('o-c').textContent=C.cta;
   document.getElementById('cap-b').textContent=b.value?bn:'your business';}
