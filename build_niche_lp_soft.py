@@ -5,6 +5,92 @@ from build_niche_lp import PAGES, G1, G2, CAL, PHONE, PHONE_H, sms
 
 IMG = {'dentists': 'dentists', 'tradies': 'tradies', 'clinics': 'clinics', 'summer': 'summer'}
 
+SERVICES = {
+ 'dentists': ['Dentist','Dental implants','Invisalign','Emergency dentist','Teeth whitening','Children\'s dentist'],
+ 'tradies': ['Plumber','Electrician','Builder','Roofer','Landscaper','Painter','Carpenter','Concreter','Air conditioning'],
+ 'clinics': ['Physiotherapy','Chiropractor','Podiatrist','Osteopath','Remedial massage','Exercise physiology'],
+ 'summer': ['Air conditioning','Pool cleaning','Pest control','Lawn mowing','Christmas lights','Gutter cleaning'],
+}
+NICHE_COPY = {
+ 'dentists': {'h2':'Book Online Today','d':'Gentle, experienced local dentists. Clear pricing and payment plans available. Book your appointment online in under a minute.','cta':'Book online'},
+ 'tradies': {'h2':'Fast, Local & Licensed','d':'Local, licensed and five-star rated. Upfront pricing before any work starts. Call now and speak to us directly.','cta':'📞 Call now'},
+ 'clinics': {'h2':'Book Online Today','d':'Experienced local practitioners. Sports injuries, back and neck pain, rehab and more. Book your appointment online in under a minute.','cta':'Book online'},
+ 'summer': {'h2':'Booking Now For Summer','d':'Local, licensed and five-star rated. Fast service before the summer rush. Upfront quotes. Call now to lock in a time.','cta':'📞 Call now'},
+}
+TOOL = r"""
+<section id="preview" class="tool"><div class="wrap">
+ <div class="tgrid">
+  <div>
+   <div class="eyebrow">Free instant preview</div>
+   <h2>See your business at the top of Google. Right now.</h2>
+   <p class="lead">Type in your business and your ad appears instantly, exactly how people searching in your area would see it.</p>
+   <form id="pv" class="pvf" autocomplete="on">
+    <label>Business name<input id="pv-b" required maxlength="40" placeholder="e.g. Shire Smiles Dental" autocomplete="organization"></label>
+    <div class="two"><label>Suburb<input id="pv-s" required maxlength="25" placeholder="e.g. Caringbah"></label>
+    <label>Service<select id="pv-v">__SVC__</select></label></div>
+    <button class="btn" type="submit">Show me my ad</button>
+   </form>
+  </div>
+  <div class="pvout">
+   <div class="serp live"><div class="q" id="o-q">dentist caringbah</div><div class="sp">Sponsored</div><div class="u" id="o-u">yourbusiness.com.au</div><div class="h" id="o-h">Your ad appears here</div><div class="st">★★★★★ <span>Your Google reviews</span></div><div class="d" id="o-d">Type your business name and suburb, and your ad will appear here.</div><div class="c" id="o-c">Call now</div><div class="dim"><div class="sp">Sponsored</div><div class="h" style="font-size:1rem">A competitor's ad</div></div></div>
+   <div id="cap" class="cap" hidden>
+    <b>Want the full version?</b>
+    <p>Your real reviews, the exact searches, the suburbs and a suggested budget, built for <span id="cap-b">your business</span> and sent within one business day. Free, no obligation.</p>
+    <form id="cf"><div class="two"><input id="c-n" required placeholder="Your name" autocomplete="name"><input id="c-m" required type="tel" inputmode="tel" placeholder="Mobile" autocomplete="tel"></div><input id="c-e" type="email" placeholder="Email (optional)" autocomplete="email"><input id="c-hp" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true"><button class="btn" type="submit" id="c-go">Send me the full preview</button></form>
+    <div id="c-msg" class="cmsg" role="status"></div>
+   </div>
+  </div>
+ </div>
+</div></section>
+<style>
+.tool{background:var(--card);border-block:1px solid var(--line);scroll-margin-top:60px}#book{scroll-margin-top:60px}
+.tgrid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}@media(max-width:900px){.tgrid{grid-template-columns:1fr;gap:28px}}
+.pvf{margin-top:26px;display:grid;gap:14px;max-width:480px}.pvf label{display:grid;gap:6px;font-weight:600;font-size:.92rem}
+.pvf input,.pvf select,.cap input{font:inherit;font-size:1rem;padding:13px 15px;border:1.5px solid var(--line);border-radius:14px;background:var(--bg);color:var(--ink);width:100%}
+.pvf input:focus,.pvf select:focus,.cap input:focus{outline:none;border-color:var(--sage);background:#fff}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(max-width:480px){.two{grid-template-columns:1fr}}
+.pvf .btn{justify-self:start}
+.serp.live{transition:box-shadow .3s}.serp.live.pop{box-shadow:0 0 0 4px var(--sage-l),0 24px 60px rgba(31,43,45,.12)}
+.cap{margin-top:18px;background:var(--sage-l);border-radius:22px;padding:24px}.cap b{font-size:1.15rem;font-weight:700}.cap p{color:var(--ink2);margin:6px 0 14px;font-size:.98rem}
+.cap form{display:grid;gap:10px}.cap .btn{width:100%}.cmsg{margin-top:10px;font-size:.95rem}.cmsg a{font-weight:600}
+</style>
+<script>
+(function(){
+ var N='__NICHE__',C=__COPY__;
+ var f=document.getElementById('pv'),b=document.getElementById('pv-b'),s=document.getElementById('pv-s'),v=document.getElementById('pv-v');
+ function t(x){return x.replace(/\s+/g,' ').trim().replace(/\b\w/g,function(m){return m.toUpperCase()})}
+ function dom(x){return x.toLowerCase().replace(/&/g,'and').replace(/[^a-z0-9]+/g,'')+'.com.au'}
+ function render(){var bn=t(b.value||'Your Business'),sb=t(s.value||'Your Suburb'),sv=v.value;
+  document.getElementById('o-q').textContent=(sv+' '+(s.value||'near me')).toLowerCase();
+  document.getElementById('o-u').textContent=b.value?dom(b.value):'yourbusiness.com.au';
+  var h=sv+' '+sb+' | '+C.h2+' | '+bn; document.getElementById('o-h').textContent=h;
+  document.getElementById('o-d').textContent=C.d; document.getElementById('o-c').textContent=C.cta;
+  document.getElementById('cap-b').textContent=b.value?bn:'your business';}
+ [b,s,v].forEach(function(el){el.addEventListener('input',render)});
+ f.addEventListener('submit',function(e){e.preventDefault();if(!b.value.trim()||!s.value.trim()){(b.value.trim()?s:b).focus();return}
+  render();var o=document.querySelector('.serp.live');o.classList.add('pop');setTimeout(function(){o.classList.remove('pop')},900);
+  var cap=document.getElementById('cap');cap.hidden=false;if(window.innerWidth<900)o.scrollIntoView({behavior:'smooth',block:'start'});
+  if(window.gtag)gtag('event','preview_generated',{niche:N,service:v.value});});
+ var cf=document.getElementById('cf'),go=document.getElementById('c-go'),msg=document.getElementById('c-msg');
+ cf.addEventListener('submit',async function(e){e.preventDefault();if(document.getElementById('c-hp').value)return;
+  var nm=document.getElementById('c-n').value.trim(),mb=document.getElementById('c-m').value.trim(),em=document.getElementById('c-e').value.trim();
+  if(!/^(\+?61|0)4\d{8}$/.test(mb.replace(/[\s()-]/g,''))){msg.textContent='Please enter an Australian mobile number.';return}
+  go.disabled=true;go.textContent='Sending…';
+  var detail=b.value.trim()+' ('+v.value+', '+s.value.trim()+')';
+  try{var r=await fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:nm,business:b.value.trim(),mobile:mb,email:em||undefined,interest:'Instant preview: '+N,site:'',goal:v.value+' in '+s.value.trim(),page:location.href})});
+   if(!r.ok)throw 0;
+   if(window.gtag)gtag('event','generate_lead',{niche:N});
+   cf.hidden=true;msg.innerHTML='<b>Done.</b> I will build the full preview for '+t(b.value)+' and send it to '+mb+' within one business day. Joel';
+  }catch(err){
+   var body=encodeURIComponent('Hi Joel, I would like the full Google preview for '+detail+'. My name is '+nm+'.');
+   msg.innerHTML='One more tap to send it: <a href="sms:+61449022604?&body='+body+'">send by text</a> or <a href="https://calendly.com/hello-margindigital/30min?name='+encodeURIComponent(nm)+'" target="_blank" rel="noopener">book a time</a>.';
+   go.disabled=false;go.textContent='Send me the full preview';}
+ });
+ render();
+})();
+</script>
+"""
+
 
 def strip_hl(s):
     return re.sub(r'<span class="hl"[^>]*>(.*?)</span>', r'<span class="soft">\1</span>', s)
@@ -13,6 +99,10 @@ def strip_hl(s):
 def page(c):
     e = html.escape
     SMS = sms("Hi Joel, I'd like a free Google preview for my business: ")
+    SMS_Q = sms("Hi Joel, I have a question about Google Ads for my business: ")
+    svc = ''.join(f'<option>{e(x)}</option>' for x in SERVICES[c['slug']])
+    import json as _j
+    tool = TOOL.replace('__COPY__', _j.dumps(NICHE_COPY[c['slug']])).replace('__SVC__', svc).replace('__NICHE__', c['slug']).replace('__WHO__', e(c['who']))
     pains = ''.join(f'<div class="pain"><h3>{e(a)}</h3><p>{e(b)}</p></div>' for a, b in c['pains'])
     gets = ''.join(f'<li>{e(x)}</li>' for x in c['gets'])
     searches = ''.join(f'<span>{e(x)}</span>' for x in c['searches'])
@@ -94,25 +184,27 @@ summary:after{{content:"+";color:var(--sage);font-weight:700;font-size:1.3rem;li
 footer{{padding:36px 0 110px;text-align:center;color:var(--ink3);font-size:.9rem}}
 .sticky{{display:none}}@media(max-width:860px){{.sticky{{display:flex;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(250,247,242,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line)}}.sticky .btn{{flex:1;padding:14px 10px}}.sticky .btn.ghost{{flex:0 0 auto;padding:14px 20px}}}}
 </style></head><body>
-<header class="top"><div class="wrap"><a class="brand" href="/"><i></i>Margin Digital</a><div class="hr"><a class="ph" href="{PHONE_H}">{PHONE}</a><a class="btn sm" href="{SMS}">Free preview</a></div></div></header>
+<header class="top"><div class="wrap"><a class="brand" href="/"><i></i>Margin Digital</a><div class="hr"><a class="ph" href="{PHONE_H}">{PHONE}</a><a class="btn sm" href="#preview">Free preview</a></div></div></header>
 <main>
 <section class="hero"><div class="wrap">
   <div>
     <div class="eyebrow">{e(c['kick'])}</div>
     <h1>{strip_hl(c['h1'])}</h1>
     <p class="lead">{e(c['lead'])}</p>
-    <div class="cta"><a class="btn" href="{SMS}">Get a free Google preview</a><a class="btn ghost" href="#book">Book a 15-minute call</a></div>
-    <p class="note">Free, no obligation. Text me your business name and I will send a private preview within one business day.</p>
+    <div class="cta"><a class="btn" href="#preview">Get a free Google preview</a><a class="btn ghost" href="#book">Book a 15-minute call</a></div>
+    <p class="note">Free, no obligation. Takes about ten seconds.</p>
   </div>
   <div class="photo"><img src="/img/lp/{img}.webp" alt="" width="1200" height="1000" fetchpriority="high">
     <div class="chip"><div class="dot">✓</div><div><b>See it before you pay</b><span>A private preview of your ads at the top of Google.</span></div></div>
   </div>
 </div></section>
 
+{tool}
+
 <section class="band"><div class="wrap">
   <div class="narrow"><div class="eyebrow">Sound familiar?</div><h2>{e(c['pain_h']) if c['pain_h']!='Sound familiar?' else 'The problems we hear most often.'}</h2></div>
   <div class="pains">{pains}</div>
-  <div class="midcta"><div><b>See what it would look like for you.</b><span>Text me your business name. Your private preview arrives within one business day, free.</span></div><div class="mbtns"><a class="btn" href="{SMS}">Get a free Google preview</a><a class="btn ghost" href="#book">Book a call</a></div></div>
+  <div class="midcta"><div><b>See what it would look like for you.</b><span>Type in your business name and see your ad at the top of Google, right now.</span></div><div class="mbtns"><a class="btn" href="#preview">Get a free Google preview</a><a class="btn ghost" href="#book">Book a call</a></div></div>
 </div></section>
 
 <section><div class="wrap split">
@@ -124,7 +216,7 @@ footer{{padding:36px 0 110px;text-align:center;color:var(--ink3);font-size:.9rem
   </div>
   <div class="serp"><div class="q">{e(ad['q'])}</div><div class="sp">Sponsored</div><div class="u">yourbusiness.com.au</div><div class="h">{e(ad['h'])}</div><div class="st">★★★★★ <span>Your Google reviews</span></div><div class="d">{e(ad['d'])}</div><div class="c">{e(ad['cta'])}</div><div class="dim"><div class="sp">Sponsored</div><div class="h" style="font-size:1rem">A competitor's ad</div></div><small>Example shown with a placeholder business.</small></div>
 </div>
-<div class="wrap"><div class="midcta"><div><b>Want this with your name on it?</b><span>I build the preview from your own website and reviews, so you can judge it before deciding anything.</span></div><div class="mbtns"><a class="btn" href="{SMS}">Get a free Google preview</a><a class="btn ghost" href="#book">Book a call</a></div></div></div></section>
+<div class="wrap"><div class="midcta"><div><b>Want this with your name on it?</b><span>I build the preview from your own website and reviews, so you can judge it before deciding anything.</span></div><div class="mbtns"><a class="btn" href="#preview">Get a free Google preview</a><a class="btn ghost" href="#book">Book a call</a></div></div></div></section>
 
 <section class="band"><div class="wrap">
   <div class="split" style="align-items:start">
@@ -135,36 +227,36 @@ footer{{padding:36px 0 110px;text-align:center;color:var(--ink3);font-size:.9rem
     <div class="price main"><h3>Google Ads management</h3><div class="amt">$799<small>per month, ex GST</small></div><p>Campaign built and managed for you, calls and bookings tracked, and a one-page monthly report. Ad spend is paid by you directly to Google. Month to month.</p></div>
     <div class="price"><h3>Website</h3><div class="amt">$2,500<small>once, ex GST</small></div><p>A fast, mobile-first site written for {e(c['who'])}, with calls and bookings wired up and your Google Business Profile set up alongside it. No monthly fee for the site.</p></div>
   </div>
-  <div class="guar"><div class="big">100%</div><div><h2>Not happy at any point? Every dollar back.</h2><p>Say so and the fee you paid is refunded in full, and you keep everything that was built. Ad spend goes directly to Google and is not part of what I charge.</p><div class="cta" style="margin-top:20px"><a class="btn" href="{SMS}">Get a free Google preview</a><a class="btn ghost" href="{PHONE_H}">Call {PHONE}</a></div></div></div>
+  <div class="guar"><div class="big">100%</div><div><h2>Not happy at any point? Every dollar back.</h2><p>Say so and the fee you paid is refunded in full, and you keep everything that was built. Ad spend goes directly to Google and is not part of what I charge.</p><div class="cta" style="margin-top:20px"><a class="btn" href="#preview">Get a free Google preview</a><a class="btn ghost" href="{PHONE_H}">Call {PHONE}</a></div></div></div>
 </div></section>
 
 <section><div class="wrap">
   <div class="narrow"><div class="eyebrow">How it works</div><h2>Three simple steps.</h2></div>
   <div class="steps">
-    <div class="step"><div class="n">1</div><h3>Text me your business name</h3><p>That is all I need. I look at your website, your Google listing and your reviews.</p></div>
+    <div class="step"><div class="n">1</div><h3>Type in your business</h3><p>Your ad appears instantly. Leave your mobile and I prepare the full version from your website, listing and reviews.</p></div>
     <div class="step"><div class="n">2</div><h3>Get your free preview</h3><p>{e(c['step2'])}</p></div>
     <div class="step"><div class="n">3</div><h3>Live within a week</h3><p>If you like it, I build it. Calls and bookings are tracked from day one, and you can stop any month.</p></div>
   </div>
-  <div class="midcta"><div><b>Step one takes ten seconds.</b><span>Text me your business name and I will take it from there.</span></div><div class="mbtns"><a class="btn" href="{SMS}">Get a free Google preview</a><a class="btn ghost" href="#book">Book a call</a></div></div>
+  <div class="midcta"><div><b>Step one takes ten seconds.</b><span>Type in your business name and see your ad straight away.</span></div><div class="mbtns"><a class="btn" href="#preview">Get a free Google preview</a><a class="btn ghost" href="#book">Book a call</a></div></div>
 </div></section>
 
 <section class="band"><div class="wrap narrow">
   <div class="eyebrow">Questions</div><h2>Good questions to ask.</h2>
   <div style="margin-top:24px">{faqs}</div>
-  <div class="cta" style="margin-top:28px"><a class="btn" href="{SMS}">Still have a question? Text me</a><a class="btn ghost" href="{PHONE_H}">Call {PHONE}</a></div>
+  <div class="cta" style="margin-top:28px"><a class="btn" href="{SMS_Q}">Still have a question? Text me</a><a class="btn ghost" href="{PHONE_H}">Call {PHONE}</a></div>
 </div></section>
 
 <section id="book"><div class="wrap">
   <div class="final">
     <h2>{strip_hl(c['final_h'])}</h2>
-    <p>Text me your business name for a free preview, give me a call, or pick a time that suits you below.</p>
-    <div class="cta"><a class="btn light" href="{SMS}">Get a free Google preview</a><a class="btn ghost" href="{PHONE_H}">Call {PHONE}</a></div>
+    <p>See your ad instantly with the free preview, give me a call, or pick a time that suits you below.</p>
+    <div class="cta"><a class="btn light" href="#preview">Get a free Google preview</a><a class="btn ghost" href="{PHONE_H}">Call {PHONE}</a></div>
     <div class="cal"><div class="calendly-inline-widget" data-url="{CAL}?hide_gdpr_banner=1&primary_color=2f5d50" style="min-width:300px;height:660px"></div></div>
   </div>
 </div></section>
 </main>
 <footer>Margin Digital · Sydney, working Australia-wide · <a href="{PHONE_H}">{PHONE}</a> · <a href="mailto:hello@margindigital.com.au">hello@margindigital.com.au</a></footer>
-<div class="sticky"><a class="btn ghost" href="{PHONE_H}">Call</a><a class="btn" href="{SMS}">Free Google preview</a></div>
+<div class="sticky"><a class="btn ghost" href="{PHONE_H}">Call</a><a class="btn" href="#preview">Free Google preview</a></div>
 <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <script>window.addEventListener('message',function(e){{if(e.origin.indexOf('calendly.com')<0)return;if(e.data&&e.data.event==='calendly.event_scheduled'&&window.gtag){{gtag('event','conversion',{{'send_to':'AW-18536302130/KGlTCJmvlKkdELKM5oZF'}});}}}});</script>
 {G2}
