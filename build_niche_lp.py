@@ -69,7 +69,7 @@ h1{{font-size:clamp(2.5rem,6.4vw,5rem)}}h2{{font-size:clamp(1.8rem,4vw,3rem)}}h3
 .steps{{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}}@media(max-width:820px){{.steps{{grid-template-columns:1fr}}}}.steps div{{border-top:4px solid var(--ink);padding-top:16px}}.steps b{{font-size:2.6rem;font-weight:900;line-height:1}}.steps p{{color:var(--ink2);margin-top:8px;font-size:1rem}}
 details{{border-bottom:1px solid var(--line);padding:18px 0}}summary{{font-weight:800;cursor:pointer;font-size:1.08rem;list-style:none}}summary::-webkit-details-marker{{display:none}}summary:after{{content:"+";float:right;font-weight:900}}details[open] summary:after{{content:"–"}}details p{{margin-top:10px;color:var(--ink2)}}
 .final{{background:var(--ink);color:#fff}}.final h2{{color:#fff;text-align:center}}.final .sub{{color:#C9D3E6;text-align:center;max-width:56ch;margin:14px auto 0;font-size:1.1rem}}
-.final .row{{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:24px}}.final .row .btn{{min-width:250px}}
+.final .row{{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:24px}}.final .row .btn{{min-width:250px}}.final .hl{{background:none;color:var(--mark)}}
 .cal{{background:#fff;border-radius:18px;margin-top:30px;overflow:hidden;min-height:660px}}
 footer{{padding:24px 0 100px;color:var(--ink3);font-size:.88rem;text-align:center}}
 .sticky{{display:none}}@media(max-width:860px){{.sticky{{display:flex;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(255,255,255,.97);border-top:1px solid var(--line)}}.sticky .btn{{flex:1;padding:15px 10px;font-size:1rem}}.sticky .btn.ol{{flex:0 0 auto;padding:15px 18px}}}}
@@ -175,7 +175,7 @@ dict(slug='dentists', accent='#2449E6', who='dental practices',
        ('Do we have to sign a contract?','No. Management is month to month. The website is a one-off fee.'),
        ('Will it work with our booking system?','Ads can send people straight to your existing online booking page, and those bookings are tracked as results.'),
        ('Who actually does the work?','I do. You have my mobile, and there is no account manager in between.')],
- final_h='Ready to see your practice <span class="hl" style="color:var(--ink)">at the top of Google?</span>'),
+ final_h='Ready to see your practice <span class="hl">at the top of Google?</span>'),
 dict(slug='tradies', accent='#2449E6', who='tradies',
  title='Google Ads and Websites for Tradies | Your Own Leads, Not Shared Ones | Margin Digital',
  desc='Google Ads and websites for plumbers, electricians, builders and trades. Your own leads, not shared with three competitors. $799/mo, no lock-in, 100% money back.',
@@ -200,7 +200,7 @@ dict(slug='tradies', accent='#2449E6', who='tradies',
        ('Is there a lock-in contract?','No. Month to month. Stop whenever you like.'),
        ('I am already flat out. Why now?','Because the quiet months are when it matters, and a campaign takes a few weeks to tune. Set it up while you are busy and it is ready when you are not.'),
        ('Who does the work?','I do. You get my mobile, not an account manager.')],
- final_h='Ready for calls that <span class="hl" style="color:var(--ink)">come to you first?</span>'),
+ final_h='Ready for calls that <span class="hl">come to you first?</span>'),
 dict(slug='clinics', accent='#2449E6', who='health clinics',
  title='Google Ads and Websites for Physio, Chiro and Allied Health Clinics | Margin Digital',
  desc='Google Ads and websites for physiotherapy, chiropractic and allied health clinics. More new patients booking online. $799/mo, no lock-in, 100% money back.',
@@ -225,7 +225,7 @@ dict(slug='clinics', accent='#2449E6', who='health clinics',
        ('How much should we spend?','Your call. The preview includes a suggested starting budget, and you can change it any time.'),
        ('Is there a contract?','No. Month to month.'),
        ('Who does the work?','I do, directly. You have my mobile.')],
- final_h='Ready to fill the <span class="hl" style="color:var(--ink)">empty appointment slots?</span>'),
+ final_h='Ready to fill the <span class="hl">empty appointment slots?</span>'),
 dict(slug='summer', accent='#2449E6', who='seasonal service businesses',
  title='Get Your Business Ready for Summer | Google Ads and Websites | Margin Digital',
  desc='Air conditioning, pools, pest control, lawns and Christmas lights: be the first business people call when summer demand hits. Free Google preview. $799/mo, no lock-in, 100% money back.',
@@ -249,7 +249,7 @@ dict(slug='summer', accent='#2449E6', who='seasonal service businesses',
        ('How fast can it be live?','Within a week of your go-ahead, which is why it is worth starting now.'),
        ('How much should I spend on ads?','Your call. The preview suggests a budget for your area, and you can turn it up or down daily.'),
        ('Who does the work?','I do. You have my mobile.')],
- final_h='Get set up <span class="hl" style="color:var(--ink)">before the rush.</span>'),
+ final_h='Get set up <span class="hl">before the rush.</span>'),
 ]
 
 if __name__ == '__main__':
