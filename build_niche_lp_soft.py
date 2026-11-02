@@ -84,6 +84,72 @@ TOOL = r"""
 """
 
 
+OPTIONS = r"""
+<dialog id="opts" aria-labelledby="opts-h">
+ <button class="ox" type="button" aria-label="Close" data-close>&times;</button>
+ <div class="eyebrow" style="margin-bottom:10px">Your options</div>
+ <h2 id="opts-h">How would you like to start?</h2>
+ <p class="osub">All free, with no obligation. Choose whichever suits you.</p>
+ <div class="olist">
+  <a class="opt" href="#preview" data-go="#preview"><span class="oi"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="12" rx="2.5"/><path d="M16 10.5l5-3v9l-5-3z"/></svg></span><span><b>Get a free 5-minute video audit <em class="tag">Most popular</em></b><small>I record a short video of your business on Google and send it to your phone. No call needed.</small></span></a>
+  <a class="opt" href="#book" data-go="#book"><span class="oi"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></span><span><b>Book a 15-minute call</b><small>Pick a time that suits you. A straightforward conversation about your business.</small></span></a>
+  <a class="opt" href="__SMS__"><span class="oi"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg></span><span><b>Text me a question</b><small>Send a quick text and I will reply to you personally.</small></span></a>
+  <a class="opt" href="__TEL__"><span class="oi"><svg viewBox="0 0 24 24"><path d="M6.5 3.5l3 .5 1.5 4-2 1.5a11 11 0 0 0 5.5 5.5l1.5-2 4 1.5.5 3c-.2 1.3-1.3 2.2-2.6 2A16 16 0 0 1 4.5 6.1C4.3 4.8 5.2 3.7 6.5 3.5z"/></svg></span><span><b>Call Joel now</b><small>__PHONE__. If I miss you, I will call you back.</small></span></a>
+ </div>
+</dialog>
+<style>
+#opts{border:0;border-radius:28px;padding:32px;max-width:560px;width:calc(100% - 32px);background:var(--bg);color:var(--ink);box-shadow:0 30px 80px rgba(31,43,45,.25)}
+#opts::backdrop{background:rgba(31,43,45,.45);backdrop-filter:blur(3px)}
+#opts h2{font-size:1.6rem}.osub{color:var(--ink2);margin-top:6px;font-size:1rem}
+.ox{position:absolute;top:14px;right:16px;border:0;background:transparent;font-size:1.8rem;line-height:1;color:var(--ink3);cursor:pointer;padding:6px}
+.olist{display:grid;gap:10px;margin-top:20px}
+.opt{display:flex;gap:14px;align-items:flex-start;background:var(--card);border:1.5px solid var(--line);border-radius:18px;padding:16px 18px;text-decoration:none;transition:border-color .2s,transform .2s}
+.opt:hover,.opt:focus-visible{border-color:var(--sage);transform:translateY(-1px);outline:none}
+.opt:first-child{border-color:var(--sage);background:var(--sage-l)}
+.opt b{display:block;font-weight:600;font-size:1.02rem}.opt small{display:block;color:var(--ink2);font-size:.92rem;line-height:1.5;margin-top:2px}
+.oi{flex:0 0 40px;height:40px;border-radius:12px;background:var(--sage);display:grid;place-content:center}
+.oi svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linejoin:round;stroke-linecap:round}
+.tag{display:inline-block;margin-left:6px;background:var(--clay);color:#fff;border-radius:999px;padding:1px 9px;font-size:.72rem;font-weight:600;vertical-align:2px}
+@media(max-width:480px){#opts{padding:26px 20px}.tag{display:none}}
+</style>
+<script>
+(function(){
+ var d=document.getElementById('opts');if(!d||!d.showModal)return;
+ document.addEventListener('click',function(e){
+  var o=e.target.closest('[data-opt]');
+  if(o){e.preventDefault();d.showModal();if(window.gtag)gtag('event','explore_options');return}
+  if(e.target.closest('[data-close]')||e.target===d){d.close();return}
+  var g=e.target.closest('[data-go]');
+  if(g){e.preventDefault();d.close();var t=document.querySelector(g.getAttribute('data-go'));if(t){t.scrollIntoView({behavior:'smooth'});if(g.getAttribute('data-go')==='#preview')setTimeout(function(){var i=document.getElementById('a-b');if(i)i.focus({preventScroll:true})},600)}
+   if(window.gtag)gtag('event','option_chosen',{option:g.getAttribute('data-go')});return}
+  if(e.target.closest('#opts a[href^="tel:"],#opts a[href^="sms:"]'))setTimeout(function(){d.close()},300);
+ });
+})();
+</script>
+"""
+
+OPT = '<a class="btn" href="#preview" data-opt>Explore my options</a>'
+
+
+def apply_options(out, SMS):
+    reps = [
+        ('<a class="btn" href="#preview">Get my free video audit</a><a class="btn ghost" href="#book">Book a 15-minute call</a>',
+         OPT + f'<a class="btn ghost" href="{PHONE_H}">Call {PHONE}</a>'),
+        ('<a class="btn" href="#preview">Get my free video audit</a><a class="btn ghost" href="#book">Book a call</a>', OPT),
+        ('<a class="btn" href="#preview">Get my free video audit</a>', OPT),
+        ('<a class="btn light" href="#preview">Get my free video audit</a>', '<a class="btn light" href="#preview" data-opt>Explore my options</a>'),
+        ('<a class="btn sm" href="#preview">Free audit</a>', '<a class="btn sm" href="#preview" data-opt>Explore options</a>'),
+        ('<a class="btn" href="#preview">Free video audit</a>', OPT),
+        ('Free, no obligation. A short personal video, sent within one business day.',
+         'A free video audit, a quick call or a text. Whichever suits you, with no obligation.'),
+    ]
+    for a, b in reps:
+        assert a in out, a
+        out = out.replace(a, b)
+    modal = OPTIONS.replace('__SMS__', SMS).replace('__TEL__', PHONE_H).replace('__PHONE__', PHONE)
+    return out.replace('<script src="https://assets.calendly.com', modal + '<script src="https://assets.calendly.com', 1)
+
+
 def strip_hl(s):
     return re.sub(r'<span class="hl"[^>]*>(.*?)</span>', r'<span class="soft">\1</span>', s)
 
@@ -257,5 +323,6 @@ footer{{padding:36px 0 110px;text-align:center;color:var(--ink3);font-size:.9rem
 
 if __name__ == '__main__':
     for c in PAGES:
-        open(f"public/{c['slug']}.html", 'w').write(page(c))
+        open(f"public/{c['slug']}.html", 'w').write(
+            apply_options(page(c), sms("Hi Joel, I have a question about my business on Google: ")))
         print('built', c['slug'])
