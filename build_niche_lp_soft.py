@@ -87,10 +87,14 @@ summary:after{{content:"+";color:var(--sage);font-weight:700;font-size:1.3rem;li
 .final h2{{color:#fff}}.final .soft{{color:#CFE7A9}}.final p{{color:#DCE8E2;margin:14px auto 0;max-width:52ch}}
 .final .cta{{justify-content:center}}.final .btn.ghost{{color:#fff;border-color:rgba(255,255,255,.4)}}.final .btn.ghost:hover{{background:rgba(255,255,255,.08)}}
 .cal{{background:#fff;border-radius:24px;overflow:hidden;margin-top:34px;min-height:660px}}
+.midcta{{margin-top:36px;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:24px 28px;display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap}}
+.midcta b{{display:block;font-weight:600;font-size:1.12rem}}.midcta span{{display:block;color:var(--ink2);font-size:.98rem;margin-top:2px}}.mbtns{{display:flex;gap:10px;flex-wrap:wrap}}
+.band .midcta{{background:#fff}}
+.hr{{display:flex;align-items:center;gap:16px}}.btn.sm{{padding:9px 18px;font-size:.92rem}}@media(max-width:600px){{.btn.sm{{display:none}}}}
 footer{{padding:36px 0 110px;text-align:center;color:var(--ink3);font-size:.9rem}}
 .sticky{{display:none}}@media(max-width:860px){{.sticky{{display:flex;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(250,247,242,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line)}}.sticky .btn{{flex:1;padding:14px 10px}}.sticky .btn.ghost{{flex:0 0 auto;padding:14px 20px}}}}
 </style></head><body>
-<header class="top"><div class="wrap"><a class="brand" href="/"><i></i>Margin Digital</a><a class="ph" href="{PHONE_H}">{PHONE}</a></div></header>
+<header class="top"><div class="wrap"><a class="brand" href="/"><i></i>Margin Digital</a><div class="hr"><a class="ph" href="{PHONE_H}">{PHONE}</a><a class="btn sm" href="{SMS}">Free preview</a></div></div></header>
 <main>
 <section class="hero"><div class="wrap">
   <div>
@@ -108,6 +112,7 @@ footer{{padding:36px 0 110px;text-align:center;color:var(--ink3);font-size:.9rem
 <section class="band"><div class="wrap">
   <div class="narrow"><div class="eyebrow">Sound familiar?</div><h2>{e(c['pain_h']) if c['pain_h']!='Sound familiar?' else 'The problems we hear most often.'}</h2></div>
   <div class="pains">{pains}</div>
+  <div class="midcta"><div><b>See what it would look like for you.</b><span>Text me your business name. Your private preview arrives within one business day, free.</span></div><div class="mbtns"><a class="btn" href="{SMS}">Get a free Google preview</a><a class="btn ghost" href="#book">Book a call</a></div></div>
 </div></section>
 
 <section><div class="wrap split">
@@ -118,7 +123,8 @@ footer{{padding:36px 0 110px;text-align:center;color:var(--ink3);font-size:.9rem
     <div class="chips">{searches}</div>
   </div>
   <div class="serp"><div class="q">{e(ad['q'])}</div><div class="sp">Sponsored</div><div class="u">yourbusiness.com.au</div><div class="h">{e(ad['h'])}</div><div class="st">★★★★★ <span>Your Google reviews</span></div><div class="d">{e(ad['d'])}</div><div class="c">{e(ad['cta'])}</div><div class="dim"><div class="sp">Sponsored</div><div class="h" style="font-size:1rem">A competitor's ad</div></div><small>Example shown with a placeholder business.</small></div>
-</div></section>
+</div>
+<div class="wrap"><div class="midcta"><div><b>Want this with your name on it?</b><span>I build the preview from your own website and reviews, so you can judge it before deciding anything.</span></div><div class="mbtns"><a class="btn" href="{SMS}">Get a free Google preview</a><a class="btn ghost" href="#book">Book a call</a></div></div></div></section>
 
 <section class="band"><div class="wrap">
   <div class="split" style="align-items:start">
@@ -129,7 +135,7 @@ footer{{padding:36px 0 110px;text-align:center;color:var(--ink3);font-size:.9rem
     <div class="price main"><h3>Google Ads management</h3><div class="amt">$799<small>per month, ex GST</small></div><p>Campaign built and managed for you, calls and bookings tracked, and a one-page monthly report. Ad spend is paid by you directly to Google. Month to month.</p></div>
     <div class="price"><h3>Website</h3><div class="amt">$2,500<small>once, ex GST</small></div><p>A fast, mobile-first site written for {e(c['who'])}, with calls and bookings wired up and your Google Business Profile set up alongside it. No monthly fee for the site.</p></div>
   </div>
-  <div class="guar"><div class="big">100%</div><div><h2>Not happy at any point? Every dollar back.</h2><p>Say so and the fee you paid is refunded in full, and you keep everything that was built. Ad spend goes directly to Google and is not part of what I charge.</p></div></div>
+  <div class="guar"><div class="big">100%</div><div><h2>Not happy at any point? Every dollar back.</h2><p>Say so and the fee you paid is refunded in full, and you keep everything that was built. Ad spend goes directly to Google and is not part of what I charge.</p><div class="cta" style="margin-top:20px"><a class="btn" href="{SMS}">Get a free Google preview</a><a class="btn ghost" href="{PHONE_H}">Call {PHONE}</a></div></div></div>
 </div></section>
 
 <section><div class="wrap">
@@ -139,11 +145,13 @@ footer{{padding:36px 0 110px;text-align:center;color:var(--ink3);font-size:.9rem
     <div class="step"><div class="n">2</div><h3>Get your free preview</h3><p>{e(c['step2'])}</p></div>
     <div class="step"><div class="n">3</div><h3>Live within a week</h3><p>If you like it, I build it. Calls and bookings are tracked from day one, and you can stop any month.</p></div>
   </div>
+  <div class="midcta"><div><b>Step one takes ten seconds.</b><span>Text me your business name and I will take it from there.</span></div><div class="mbtns"><a class="btn" href="{SMS}">Get a free Google preview</a><a class="btn ghost" href="#book">Book a call</a></div></div>
 </div></section>
 
 <section class="band"><div class="wrap narrow">
   <div class="eyebrow">Questions</div><h2>Good questions to ask.</h2>
   <div style="margin-top:24px">{faqs}</div>
+  <div class="cta" style="margin-top:28px"><a class="btn" href="{SMS}">Still have a question? Text me</a><a class="btn ghost" href="{PHONE_H}">Call {PHONE}</a></div>
 </div></section>
 
 <section id="book"><div class="wrap">
