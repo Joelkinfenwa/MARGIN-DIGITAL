@@ -486,7 +486,8 @@ footer .cols{display:flex;flex-wrap:wrap;gap:8px 22px}
         name:f.name.value.trim(),business:f.business.value.trim(),mobile:f.mobile.value.trim(),email:f.email.value.trim(),
         site:f.site.value.trim(),goal:f.goal.value.trim(),page:location.href})});
       if(!r.ok) throw new Error('bad status');
-      window.location.href='/thanks.html';
+      var go=function(){window.location.href='/thanks.html';};
+      if(window.gtag){gtag('event','conversion',{'send_to':'AW-18536302130/pwKACKuJz7EdELKM5oZF','event_callback':go});setTimeout(go,1200);}else{go();}
     }catch(err){
       btn.disabled=false;btn.textContent='Send it to the founder';
       msg.className='msg err';msg.textContent='That did not send. Call 0449 022 604 or email hello@margindigital.com.au and we will book you in.';

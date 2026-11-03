@@ -72,7 +72,7 @@ TOOL = r"""
   go.disabled=true;go.textContent='Sending…';
   try{var r=await fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:'Not given',business:B,mobile:M,email:E||undefined,interest:'Free video audit: '+N,site:W,goal:V+' in '+S,page:location.href})});
    if(!r.ok)throw 0;
-   if(window.gtag)gtag('event','generate_lead',{niche:N});
+   if(window.gtag){gtag('event','generate_lead',{niche:N});gtag('event','conversion',{'send_to':'AW-18536302130/pwKACKuJz7EdELKM5oZF'});}
    f.hidden=true;f.style.display='none';msg.innerHTML='<b>Got it.</b> I will record your video audit for '+B+' and send it to '+M+' within one business day. Joel';
   }catch(err){
    var body=encodeURIComponent('Hi Joel, I would like a free video audit for '+B+' ('+V+', '+S+')'+(W?' - '+W:'')+'.');
@@ -117,7 +117,7 @@ OPTIONS = r"""
  var d=document.getElementById('opts');if(!d||!d.showModal)return;
  document.addEventListener('click',function(e){
   var o=e.target.closest('[data-opt]');
-  if(o){e.preventDefault();d.showModal();if(window.gtag)gtag('event','explore_options');return}
+  if(o){e.preventDefault();d.showModal();if(window.gtag){gtag('event','explore_options');gtag('event','conversion',{'send_to':'AW-18536302130/-GMHCK6Jz7EdELKM5oZF'});}return}
   if(e.target.closest('[data-close]')||e.target===d){d.close();return}
   var g=e.target.closest('[data-go]');
   if(g){e.preventDefault();d.close();var t=document.querySelector(g.getAttribute('data-go'));if(t){t.scrollIntoView({behavior:'smooth'});if(g.getAttribute('data-go')==='#preview')setTimeout(function(){var i=document.getElementById('a-b');if(i)i.focus({preventScroll:true})},600)}
